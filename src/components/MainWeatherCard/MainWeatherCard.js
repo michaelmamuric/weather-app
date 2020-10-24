@@ -1,23 +1,67 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
+import MainWeatherContent from './MainWeatherContent/MainWeatherContent';
+import classes from './MainWeatherCard.module.css';
 
 const MainWeatherCard = (props) => {
+
+    // Destructure object for easier referencing
+    const { weatherData, error } = props;
+    
+    // Set initial card content
+    let cardContent = (
+        <MainWeatherContent
+            icon={[]}
+            cityName="-"
+            location="-"
+            weatherDescriptions={['-']}
+            temperature="-"
+            feelsLike="-"
+            dateTime="-"
+            humidity="-"
+            windSpeed="-"
+            precipitation="-"
+        />
+    );
+
+    if(weatherData !== null) {
+        cardContent = (
+            <MainWeatherContent 
+                icon={weatherData.current.weather_icons}
+                cityName={weatherData.location.name}
+                location={
+                    weatherData.location.region !== "" ?
+                    weatherData.location.region + ', ' + weatherData.location.country :
+                    weatherData.location.country
+                }
+                weatherDescriptions={weatherData.current.weather_descriptions}
+                temperature={weatherData.current.temperature + ' C'}
+                feelsLike={weatherData.current.feelslike + ' C'}
+                dateTime={weatherData.location.localtime}
+                humidity={weatherData.current.humidity + '%'}
+                windSpeed={weatherData.current.wind_speed + ' km/hr'}
+                precipitation={weatherData.current.precip + ' mm'}            
+            />
+        );
+    }
+
     return (
-        <Card>
-            Main Weather Card
-            City Name: {props.cityName}
+        <Card className={classes.MainWeatherCard}>
+          <CardContent>
+            {cardContent}
+          </CardContent>
         </Card>
     );
 }
 
-// Maps to reducers/weatherReducer.js
 const mapStateToProps = (state) => {
     return {
-        cityName: state.cityName,
-        isMetric: state.isMetric
+        weatherData: state.weatherData,
+        error: state.error
     }
 };
-
 
 export default connect(mapStateToProps, null)(MainWeatherCard);

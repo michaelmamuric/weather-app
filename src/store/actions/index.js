@@ -1,4 +1,4 @@
 export {
-    updateCity,
-    switchUnits
+    fetchWeatherData,
+    parseWeatherData
 } from './weatherActions';

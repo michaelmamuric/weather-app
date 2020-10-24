@@ -1,2 +1,2 @@
-export const UPDATE_CITY = 'UPDATE_CITY';
-export const SWITCH_UNITS = 'SWITCH_UNITS';
+export const PARSE_WEATHER_DATA = 'PARSE_WEATHER_DATA';
+export const DISPLAY_ERROR = 'DISPLAY_ERROR';

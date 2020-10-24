@@ -14,13 +14,8 @@ function App() {
       <Grid item xs={12}>
         <SearchBar />
       </Grid>
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12}>
         <MainWeatherCard />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Card>
-          Card 2
-        </Card>
       </Grid>
     </Grid>
   );

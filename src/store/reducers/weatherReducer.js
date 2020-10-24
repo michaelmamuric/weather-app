@@ -1,25 +1,25 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    cityName: null,
-    isMetric: true
+    weatherData: null,
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.UPDATE_CITY:
+        case actionTypes.PARSE_WEATHER_DATA:
             return {
                 ...state,
-                cityName: action.cityName
-            };
-        case actionTypes.SWITCH_UNITS:
-            return {
-                ...state,
-                isMetric: !state.isMetric
+                weatherData: action.weatherData
             }
+        case actionTypes.DISPLAY_ERROR:
+            return {
+                ...state,
+                error: action.error
+            }
+        default:
+            return state;
     }
-
-    return state;
 }
 
 export default reducer;
