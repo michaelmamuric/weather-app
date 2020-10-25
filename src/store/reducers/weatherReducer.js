@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
             }
         case actionTypes.DISPLAY_ERROR:
             return {
-                ...state,
+                weatherData: null,
                 error: action.error
             }
         default:

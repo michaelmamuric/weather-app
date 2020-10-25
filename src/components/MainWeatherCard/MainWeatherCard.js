@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import ErrorDialog from '../ErrorDialog/ErrorDialog';
 
 import MainWeatherContent from './MainWeatherContent/MainWeatherContent';
 import classes from './MainWeatherCard.module.css';
@@ -26,6 +27,10 @@ const MainWeatherCard = (props) => {
             precipitation="-"
         />
     );
+
+    if(error !== null) {
+        cardContent = <ErrorDialog errorMessage={error} />
+    }
 
     if(weatherData !== null) {
         cardContent = (

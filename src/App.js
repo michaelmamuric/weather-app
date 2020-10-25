@@ -3,7 +3,6 @@ import SearchBar from './components/SearchBar/SearchBar';
 import NavigationBar from './components/NavigationBar';
 import MainWeatherCard from './components/MainWeatherCard/MainWeatherCard';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 
 function App() {
   return (
