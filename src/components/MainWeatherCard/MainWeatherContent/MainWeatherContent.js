@@ -7,6 +7,7 @@ const MainWeatherContent = (props) => (
     <Grid container spacing={2}>
         <Grid item xs={12}>
         {
+            // Weather Icons
             props.icon.map((icon, index) => {
                 return <img key={index} src={icon} alt={icon} /> 
             })
@@ -20,6 +21,7 @@ const MainWeatherContent = (props) => (
         </Grid>
         <Grid item xs={12}>
         {
+            // Weather Descriptions
             props.weatherDescriptions.map((description, index) => {
                 return <Typography key={index}>{description}</Typography>
             })
