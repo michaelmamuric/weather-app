@@ -1,7 +1,9 @@
 # Weather App
 
 This is a simple Weather App I created using React.js.
-It is currently deployed at [Firebase](https://firebase.google.com/) at https://weather-app-mmamuric.web.app/
+It is currently deployed at [Firebase](https://firebase.google.com/) on this URL:
+
+https://weather-app-mmamuric.web.app/
 
 Here are some of the technologies I used for this app:
 - [Redux](https://redux.js.org/) for state management. Probably an overkill for such a small app like this, but I wanted to get more hands-on practice in using it.
