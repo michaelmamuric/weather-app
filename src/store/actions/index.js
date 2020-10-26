@@ -1,4 +1,5 @@
 export {
     fetchWeatherData,
-    parseWeatherData
+    parseWeatherData,
+    clearError
 } from './weatherActions';

@@ -28,9 +28,12 @@ const MainWeatherCard = (props) => {
         />
     );
 
+    // Set Error Dialog
+    let errorDialog = null;
+
     // Display Error Dialog if error has been found
     if(error !== null) {
-        cardContent = <ErrorDialog errorMessage={error} />;
+        errorDialog = <ErrorDialog />;
     }
     else if(weatherData !== null) {
         cardContent = (
@@ -56,6 +59,7 @@ const MainWeatherCard = (props) => {
     return (
         <Card className={classes.MainWeatherCard}>
           <CardContent>
+            {errorDialog}
             {cardContent}
           </CardContent>
         </Card>
