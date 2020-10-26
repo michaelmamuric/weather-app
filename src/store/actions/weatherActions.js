@@ -18,20 +18,20 @@ export const displayError = (error) => {
 
 export const fetchWeatherData = (cityName) => {
     return async(dispatch) => {
-        try { 
-            // Fetch WeatherStack API           
+        try {            
+            // Fetch Weather API
             const response = await axios.post(
-                `http://api.weatherstack.com/current?accss_key=${apiKey}&query=${cityName}`
+                `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`
             );
 
             // Error is encountered, e.g. malformed URL request, exceeded number of API calls, etc.
-            if(response.data.hasOwnProperty('error'))
-                dispatch(displayError(response.data.error.info));
+            if(response.hasOwnProperty('error'))
+                dispatch(displayError(response.data.error.message));
             else
                 dispatch(parseWeatherData(response.data));
         } catch(error) {
             // Other errors that may be encountered
-            dispatch(displayError(error));
+            dispatch(displayError(error.message));
         }
     }
 }

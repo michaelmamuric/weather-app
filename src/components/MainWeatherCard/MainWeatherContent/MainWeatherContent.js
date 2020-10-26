@@ -6,12 +6,7 @@ import Typography from '@material-ui/core/Typography';
 const MainWeatherContent = (props) => (
     <Grid container spacing={2}>
         <Grid item xs={12}>
-        {
-            // Weather Icons
-            props.icon.map((icon, index) => {
-                return <img key={index} src={icon} alt={icon} /> 
-            })
-        }
+            { props.icon !== '-' ? <img src={props.icon} alt='Icon' /> : null }
         </Grid>
         <Grid item xs={12}>
             <Typography variant="h5">{props.cityName}</Typography>
@@ -20,12 +15,7 @@ const MainWeatherContent = (props) => (
             <Typography variant="h6">{props.location}</Typography>
         </Grid>
         <Grid item xs={12}>
-        {
-            // Weather Descriptions
-            props.weatherDescriptions.map((description, index) => {
-                return <Typography key={index}>{description}</Typography>
-            })
-        }
+            <Typography>{props.weatherDescriptions}</Typography>
         </Grid>
         <Grid item xs={6} md={4}>
             <WiCelsius size={50} />

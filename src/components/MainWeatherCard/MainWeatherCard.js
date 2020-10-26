@@ -15,10 +15,10 @@ const MainWeatherCard = (props) => {
     // Set initial card content
     let cardContent = (
         <MainWeatherContent
-            icon={[]}
+            icon="-"
             cityName="-"
             location="-"
-            weatherDescriptions={['-']}
+            weatherDescriptions="-"
             temperature="-"
             feelsLike="-"
             dateTime="-"
@@ -35,20 +35,20 @@ const MainWeatherCard = (props) => {
     else if(weatherData !== null) {
         cardContent = (
             <MainWeatherContent 
-                icon={weatherData.current.weather_icons}
+                icon={weatherData.current.condition.icon}
                 cityName={weatherData.location.name}
                 location={
                     weatherData.location.region !== "" ?
                     weatherData.location.region + ', ' + weatherData.location.country :
                     weatherData.location.country
                 }
-                weatherDescriptions={weatherData.current.weather_descriptions}
-                temperature={weatherData.current.temperature + ' C'}
-                feelsLike={weatherData.current.feelslike + ' C'}
+                weatherDescriptions={weatherData.current.condition.text}
+                temperature={weatherData.current.temp_c + ' C'}
+                feelsLike={weatherData.current.feelslike_c + ' C'}
                 dateTime={weatherData.location.localtime}
                 humidity={weatherData.current.humidity + '%'}
-                windSpeed={weatherData.current.wind_speed + ' km/hr'}
-                precipitation={weatherData.current.precip + ' mm'}            
+                windSpeed={weatherData.current.wind_kph + ' km/hr'}
+                precipitation={weatherData.current.precip_mm + ' mm'}            
             />
         );
     }
