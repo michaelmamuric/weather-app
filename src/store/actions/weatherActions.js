@@ -28,7 +28,7 @@ export const fetchWeatherData = (cityName) => {
         try {            
             // Fetch Weather API
             const response = await axios.post(
-                `https://api.weatherapi.com/v1/current.json?key=122&q=${cityName}`
+                `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`
             );
 
             // Error is encountered, e.g. malformed URL request, exceeded number of API calls, etc.
