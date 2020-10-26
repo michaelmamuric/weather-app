@@ -1,7 +1,7 @@
 # Weather App
 
 This is a simple Weather App I created using React.js.
-It is currently deployed at [Firebase](https://firebase.google.com/) on this URL:
+It is currently deployed on [Firebase](https://firebase.google.com/) at this URL:
 
 https://weather-app-mmamuric.web.app/
 
