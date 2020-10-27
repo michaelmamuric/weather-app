@@ -2,7 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     weatherData: null,
-    error: null
+    error: null,
+    isLoading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -20,8 +21,15 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CLEAR_ERROR:
             return {
                 ...state,
-                error: null
+                error: null,
+                isLoading: false
             }
+        case actionTypes.SET_LOADING: {
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
+        }
         default:
             return state;
     }

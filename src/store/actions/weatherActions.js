@@ -17,19 +17,31 @@ export const displayError = (error) => {
 }
 
 export const clearError = () => {
-    console.log('Clear Error');
     return {
         type: actionTypes.CLEAR_ERROR,
     }
 }
 
+export const setLoading = (isLoading) => {
+    return {
+        type: actionTypes.SET_LOADING,
+        isLoading
+    }
+}
+
 export const fetchWeatherData = (cityName) => {
     return async(dispatch) => {
-        try {            
+        try {
+            // Set Loading to true
+            dispatch(setLoading(true));
+            
             // Fetch Weather API
             const response = await axios.post(
                 `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`
             );
+
+            // Set Loading to false after response is obtained
+            dispatch(setLoading(false));
 
             // Error is encountered, e.g. malformed URL request, exceeded number of API calls, etc.
             if(response.hasOwnProperty('error')) {

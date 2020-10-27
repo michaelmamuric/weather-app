@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './components/SearchBar/SearchBar';
-import NavigationBar from './components/NavigationBar';
+import NavigationBar from './components/NavigationBar/NavigationBar';
 import MainWeatherCard from './components/MainWeatherCard/MainWeatherCard';
 import Footer from './components/Footer/Footer';
 import Grid from '@material-ui/core/Grid';
